@@ -1,0 +1,398 @@
+﻿<Window x:Class="FeriaEscritorio.AdminContratos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FeriaEscritorio"
+        mc:Ignorable="d"
+       Title="Administrar Saldos" Height="550" Width="800" 
+        WindowStyle="None" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen"
+        MouseDown="Window_MouseDown"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Border CornerRadius="22">
+        <Border.Background>
+            <ImageBrush ImageSource="/Imagenes/fondo4.jpg"></ImageBrush>
+        </Border.Background>
+        <Border CornerRadius="20"                   
+            BorderThickness="4"
+            Opacity="0.85" RenderTransformOrigin="0.49,0.5">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#462ad8" Offset="0"/>
+                    <GradientStop Color="#da34ae" Offset="0.75"/>
+                    <GradientStop Color="#8a16c1" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="1,1" EndPoint="1,0">
+                    <GradientStop Color="Transparent" Offset="0"/>
+                    <GradientStop Color="#FF999999" Offset="0.9"/>
+
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Administración de Contratos"
+                               Foreground="#FF020909"
+                               FontSize="20"
+                               FontFamily="Montserrat"
+                               Grid.Column="0"
+                               VerticalAlignment="Center"
+
+                               Margin="260,1,24.6,5.4"/>
+                    <Button x:Name="btnMinimize"                          
+                            BorderThickness="0"
+                            Content="-"
+                            Foreground="White"
+                            FontSize="20"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="btnMinimize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#66D7D1"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#278bef"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18" 
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="btnClose"                           
+                            BorderThickness="0"
+                            Content="X"
+                            Foreground="White"
+                            FontSize="10"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            Grid.Column="1"
+                            Click="btnClose_Click" Grid.ColumnSpan="2" Margin="24.4,0,0.2,0" Height="30" VerticalAlignment="Top">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="DeepPink"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Purple"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18" 
+                                        CornerRadius="9"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+                <StackPanel HorizontalAlignment="Left" Height="115" Margin="25,25.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="359">
+                    <TextBox x:Name="txtbuscarC"
+                               FontSize="13"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"                                                          
+                               Foreground="White"
+                               CaretBrush="LightGray"
+                               BorderBrush="DarkGray"
+                               BorderThickness="0,0,0,1"
+                               Height="28"
+                               VerticalContentAlignment="Center"
+                              
+                               Padding="30,0,0,0" Margin="0,0,125.2,0" Text="         Ingresar ID" SelectionOpacity="100"
+                               >
+                        <TextBox.Background>
+                            <ImageBrush ImageSource="/Imagenes/lupa.png"
+                                        Stretch="Uniform"
+                                        AlignmentX="Left"
+                                        />
+                        </TextBox.Background>
+                    </TextBox>
+                    <Button x:Name="btnBusCon"                           
+                            BorderThickness="0"
+                            Content="Buscar Contrato"
+                            Foreground="White"
+                            FontSize="10"
+                            FontFamily="Montserrat"
+                            Cursor="Hand"
+                            
+                            Margin="0,10,0,0" HorizontalAlignment="Left" Width="234" Height="36" Background="#FF8E0768" Click="btnBusCon_Click"
+                            >
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="DarkCyan"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Purple"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="35" 
+                                        CornerRadius="15"
+                                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Left" Height="115" Margin="409,25.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="182"/>
+                <StackPanel HorizontalAlignment="Left" Height="115" Margin="586,25.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="182">
+                    <Button x:Name="btnListarC"                           
+                        BorderThickness="0"
+                        Content="Todos los Contratos"
+                        Foreground="White"
+                        FontSize="10"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        
+                        Margin="0,10,0,0" HorizontalAlignment="Left" Width="182" Height="36" Click="btnListarC_Click"
+                            >
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#FF142997"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Purple"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="35" 
+                                    CornerRadius="15"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="btnCrearC"                           
+                        BorderThickness="0"
+                        Content="Crear Contrato"
+                        Foreground="White"
+                        FontSize="10"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        
+                        Margin="0,10,0,0" HorizontalAlignment="Left" Width="182" Height="36" Click="btnCrearC_Click"
+                            >
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="Black"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Purple"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="35" 
+                                    CornerRadius="15"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </StackPanel>
+                <StackPanel 
+                    Grid.Row="1"
+                    Orientation="Vertical"
+                    Margin="612,394.6,24,10.4">
+                    <Button x:Name="btnVolver"                   
+                        BorderThickness="0"
+                        Content="Volver al Inicio"
+                        Foreground="White"
+                        FontSize="10"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Margin="0,0,0.2,0" Height="50" Click="btnVolver_Click" FontWeight="Bold" 
+                            >
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#FFB3AA2B"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Purple"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="35" 
+                                    CornerRadius="15"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button x:Name="btnSalirE"                   
+                        BorderThickness="0"
+                        Content="Salir al Escritorio"
+                        Foreground="White"
+                        FontSize="10"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        Margin="0,0,0.2,0" Height="50" Click="btnSalirE_Click" FontWeight="Bold" 
+                            >
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#FFB3AA2B"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Purple"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="35" 
+                                    CornerRadius="15"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                </StackPanel>
+                <DataGrid x:Name="gvcontratos" 
+                          HorizontalAlignment="Left" 
+                          Height="163" Margin="25,140.6,0,0" 
+                          Grid.Row="1" VerticalAlignment="Top" Width="743"
+                          Background="Black" FontFamily="Dubai Medium" Opacity="0.6" Loaded="gvcontratos_Loaded"/>
+                <StackPanel HorizontalAlignment="Left" Height="158" Margin="293,343.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="181" Background="Black">
+                    <TextBlock
+                        Foreground="#66D7D1"
+                        FontSize="18"
+                        FontFamily="Montserrat"
+                        VerticalAlignment="Center"
+
+                        Margin="-18,0,-1.2,0" Height="23"><Run Text="  "/><Run Text="     "/><Run Text="Gestión Contrato"/></TextBlock>
+                    <TextBox x:Name="txtCambioCon" 
+                               FontSize="13"
+                               FontWeight="Medium"
+                               FontFamily="Montserrat"                                                          
+                               Foreground="White"
+                               CaretBrush="LightGray"
+                               BorderBrush="DarkGray"
+                               Background="Gray"
+                               BorderThickness="0,0,0,5"
+                               Height="28"
+                             
+                               
+                               VerticalContentAlignment="Center"
+                              
+                               Padding="30,0,0,0" Margin="10,0,9.8,0" Text="   Ingresar ID" SelectionOpacity="100"
+                               />
+                    <Button x:Name="btnActivarC"                           
+                        BorderThickness="0"
+                        Content="Activar"
+                        Foreground="White"
+                        FontSize="10"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                       
+                        Margin="0,10,-5.2,0" HorizontalAlignment="Left" Width="182" Height="36" Click="btnActivarC_Click"
+                            >
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#FF389714"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Purple"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="35" 
+                                    CornerRadius="15"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="btnTerminarC"                           
+                        BorderThickness="0"
+                        Content="Terminar"
+                        Foreground="White"
+                        FontSize="10"
+                        FontFamily="Montserrat"
+                        Cursor="Hand"
+                        
+                        Margin="0,10,-5.2,0" HorizontalAlignment="Left" Width="182" Height="36" Click="btnTerminarC_Click"
+                            >
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="Red"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Purple"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Width="100" Height="35" 
+                                    CornerRadius="15"
+                                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Border>
+</Window>

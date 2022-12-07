@@ -1,0 +1,5 @@
+C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\CapaAcceso\bin\x64\Debug\CapaAcceso.dll
+C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\CapaAcceso\bin\x64\Debug\CapaAcceso.pdb
+C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\CapaAcceso\obj\x64\Debug\CapaAcceso.csproj.CoreCompileInputs.cache
+C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\CapaAcceso\obj\x64\Debug\CapaAcceso.dll
+C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\CapaAcceso\obj\x64\Debug\CapaAcceso.pdb
