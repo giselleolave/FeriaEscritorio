@@ -160,3 +160,8 @@ C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\FeriaEscritori
 C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\FeriaEscritorio\bin\Debug\Prism.xml
 C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\FeriaEscritorio\bin\Debug\Prism.Wpf.pdb
 C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\FeriaEscritorio\bin\Debug\Prism.Wpf.xml
+C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\FeriaEscritorio\bin\Debug\MaterialDesignColors.dll
+C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\FeriaEscritorio\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\FeriaEscritorio\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\FeriaEscritorio\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\FeriaEscritorio\bin\Debug\MaterialDesignThemes.Wpf.xml

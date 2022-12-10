@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:FeriaEscritorio"
              StartupUri="Ingreso.xaml">
     <Application.Resources>
-       
+        
     </Application.Resources>
 </Application>

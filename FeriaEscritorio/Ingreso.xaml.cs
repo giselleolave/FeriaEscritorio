@@ -77,12 +77,10 @@ namespace FeriaEscritorio
                 MenuPrincipal menuPrincipal = new MenuPrincipal();
                 menuPrincipal.Show();
 
-            }
-            else
-            {
-                
-                MessageBox.Show("Acceso Denegado");
-            }
+            }           
+            else if (txtEmail.Text.Length == 0) { MessageBox.Show("Debe escribir un email asociado a un perfil de ADMINISTRADOR"); }
+            else if (txtContrasena.Text.Length == 0) { MessageBox.Show("Debe escribir una contraseña"); }
+            else {MessageBox.Show("Acceso Denegado");}
         }
     }
 }
