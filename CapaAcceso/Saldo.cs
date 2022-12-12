@@ -11,7 +11,7 @@ namespace CapaAcceso
         private int _id_saldo;
         private string _descripcion;
         private int _cantidad;       
-        private int _precio;
+        private float _precio;
         private int _id_producto;
         private string _estado;
 
@@ -51,7 +51,7 @@ namespace CapaAcceso
             }
         }
         
-        public int Precio
+        public float Precio
         {
             get
             {
@@ -62,7 +62,7 @@ namespace CapaAcceso
                 _precio = value;
             }
         }
-        public int ID_Producto
+        public int Producto_ID
         {
             get
             {

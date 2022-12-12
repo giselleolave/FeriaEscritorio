@@ -42,7 +42,7 @@ namespace FeriaEscritorio
             catch (Exception ex)
             {
                 MessageBox.Show("Error de conexión");
-                throw new Exception("Falla de conexión");
+                throw new Exception("Falla de conexión" + ex);
             }
         }
 
@@ -64,7 +64,7 @@ namespace FeriaEscritorio
 
         private void btnEntrar_Click(object sender, RoutedEventArgs e)
         {
-            OracleCommand comand = new OracleCommand("SELECT * FROM USUARIO WHERE EMAIL like('" + txtEmail.Text + "') AND PASSWORD  like('" + txtContrasena.Text + "') AND ID_TIPO_USUARIO = 13", conn);
+            OracleCommand comand = new OracleCommand("SELECT * FROM USUARIO WHERE EMAIL like('" + txtEmail.Text + "') AND PASSWORD  like('" + txtContrasena.Text + "') AND ID_TIPO_USUARIO = 1", conn);
             comand.Parameters.Add(":EMAIL", txtEmail.Text);
             comand.Parameters.Add(":PASSWORD", txtContrasena.Text);
             Console.WriteLine("CONTRASEÑA" + txtContrasena.Text);

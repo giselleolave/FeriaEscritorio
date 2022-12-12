@@ -103,7 +103,7 @@ namespace FeriaEscritorio
 
         private void btnAnular_Click(object sender, RoutedEventArgs e)
         {
-            int anulado = 7;
+            int anulado = 3;
             try
             {
                 OracleCommand cmd = new OracleCommand("FN_CAMBIAREST", conn);
@@ -123,7 +123,7 @@ namespace FeriaEscritorio
 
         private void btnActivar_Click(object sender, RoutedEventArgs e)
         {
-            int activa =8;
+            int activa =2;
             try
             {
                 OracleCommand cmd = new OracleCommand("FN_CAMBIAREST", conn);
@@ -232,7 +232,7 @@ namespace FeriaEscritorio
         private void btnBusPro1_Click(object sender, RoutedEventArgs e)
         {
             OracleCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT SOLICITUD_PRO.ID,SOLICITUD_PRO.PRODUCTO,SOLICITUD_PRO.CANTIDAD,SOLICITUD_PRO.DIRECCION,SOLICITUD_PRO.USUARIO_ID,ESTADO.ESTADO FROM SOLICITUD_PRO JOIN ESTADO ON SOLICITUD_PRO.ESTADO_ID = ESTADO.ID WHERE ID like ('" + txtbuscarSI.Text + "%')";
+            cmd.CommandText = "SELECT SOLICITUD_PRO.ID,SOLICITUD_PRO.PRODUCTO,SOLICITUD_PRO.CANTIDAD,SOLICITUD_PRO.DIRECCION,SOLICITUD_PRO.USUARIO_ID,ESTADO.ESTADO FROM SOLICITUD_PRO JOIN ESTADO ON SOLICITUD_PRO.ESTADO_ID = ESTADO.ID WHERE SOLICITUD_PRO.ID like ('" + txtbuscarSI.Text + "%')";
             cmd.CommandType = CommandType.Text;
             OracleDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();

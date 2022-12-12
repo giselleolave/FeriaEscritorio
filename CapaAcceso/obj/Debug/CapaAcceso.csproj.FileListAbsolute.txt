@@ -4,3 +4,9 @@ C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\CapaAcceso\obj
 C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\CapaAcceso\obj\Debug\CapaAcceso.dll
 C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\CapaAcceso\obj\Debug\CapaAcceso.pdb
 C:\Users\Casa\Desktop\Proyectos\Feria Virtual.net\FeriaEscritorio\CapaAcceso\obj\Debug\CapaAcceso.csproj.AssemblyReference.cache
+C:\Users\JJack\Source\Repos\FeriaEscritorio\CapaAcceso\bin\Debug\CapaAcceso.dll
+C:\Users\JJack\Source\Repos\FeriaEscritorio\CapaAcceso\bin\Debug\CapaAcceso.pdb
+C:\Users\JJack\Source\Repos\FeriaEscritorio\CapaAcceso\obj\Debug\CapaAcceso.csproj.AssemblyReference.cache
+C:\Users\JJack\Source\Repos\FeriaEscritorio\CapaAcceso\obj\Debug\CapaAcceso.csproj.CoreCompileInputs.cache
+C:\Users\JJack\Source\Repos\FeriaEscritorio\CapaAcceso\obj\Debug\CapaAcceso.dll
+C:\Users\JJack\Source\Repos\FeriaEscritorio\CapaAcceso\obj\Debug\CapaAcceso.pdb
