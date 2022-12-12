@@ -17,6 +17,7 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
 
 namespace FeriaEscritorio
 {
@@ -43,7 +44,7 @@ namespace FeriaEscritorio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error de conexión");
+                MessageBox.Show("Error de conexión", "Message", MessageBoxButtons.OK);
                 throw new Exception("Falla de conexión");
             }
         }
@@ -79,7 +80,7 @@ namespace FeriaEscritorio
             catch (Exception ex)
             {
 
-                MessageBox.Show("Error al cargar datos");
+                MessageBox.Show("Error al cargar datos", "Message", MessageBoxButtons.OK);
             }
         }
 

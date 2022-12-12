@@ -16,6 +16,7 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
 
 namespace FeriaEscritorio
 {
@@ -53,7 +54,7 @@ namespace FeriaEscritorio
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -70,7 +71,7 @@ namespace FeriaEscritorio
 
         private void btnSalirE_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnGuardarU_Click(object sender, RoutedEventArgs e)
@@ -85,12 +86,12 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("CONT", OracleDbType.Varchar2).Value = txtContrasena2.Text;
                 cmd.Parameters.Add("TIP", OracleDbType.Int32).Value = Convert.ToInt32(CbxTipoU.SelectedValue);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Usuario Insertado");
+                MessageBox.Show("Usuario Insertado", "INSERTAR USUARUARIO", MessageBoxButtons.OK);
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Error al insertar usuario");
+                MessageBox.Show("Error al insertar usuario", "ERROR INSERTA USUARIO", MessageBoxButtons.OK);
             }
 
         }

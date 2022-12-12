@@ -16,6 +16,7 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
 
 namespace FeriaEscritorio
 {
@@ -53,7 +54,7 @@ namespace FeriaEscritorio
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -65,7 +66,7 @@ namespace FeriaEscritorio
 
         private void btnSalirE_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -105,7 +106,7 @@ namespace FeriaEscritorio
             catch (Exception)
             {
 
-                MessageBox.Show("Error al cargar datos");
+                MessageBox.Show("Error al cargar datos", "ERROR DE CONEXIÓN", MessageBoxButtons.OK);
             }
         }
 
@@ -132,12 +133,12 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("NOMCAT", OracleDbType.Varchar2).Value = txtNombreCat.Text;
                 
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Categoría Insertada");
+                MessageBox.Show("Categoría Insertada", "CREAR CATEGORÍA", MessageBoxButtons.OK);
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Error al insertar categoría");
+                MessageBox.Show("Error al insertar categoría", "ERROR CREAR CATEGORÍA", MessageBoxButtons.OK);
             }
         }
     }

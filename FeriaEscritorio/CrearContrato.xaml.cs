@@ -16,6 +16,7 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
 
 namespace FeriaEscritorio
 {
@@ -59,12 +60,12 @@ namespace FeriaEscritorio
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnSalirE_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -84,12 +85,12 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("FECF", OracleDbType.Date).Value = Convert.ToDateTime(dtFecha_firma.ToString());
                 cmd.Parameters.Add("FECT", OracleDbType.Date).Value = Convert.ToDateTime(dtFecha_termino.ToString());
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Contrato Creado");
+                MessageBox.Show("Contrato Creado", "CREAR CONTRATO", MessageBoxButtons.OK);
             }
             catch (Exception error)
             {
 
-                MessageBox.Show("Error al crear contrato");
+                MessageBox.Show("Error al crear contrato", "ERROR CREAR CONTRATO", MessageBoxButtons.OK);
             }
         }
 

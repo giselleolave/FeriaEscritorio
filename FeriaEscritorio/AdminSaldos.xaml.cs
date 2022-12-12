@@ -16,6 +16,7 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
 
 namespace FeriaEscritorio
 {
@@ -58,7 +59,7 @@ namespace FeriaEscritorio
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -70,7 +71,7 @@ namespace FeriaEscritorio
 
         private void btnSalirE_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void gvsaldos_Loaded(object sender, RoutedEventArgs e)
@@ -111,7 +112,7 @@ namespace FeriaEscritorio
             catch (Exception)
             {
 
-                MessageBox.Show("Error al cargar datos");
+                MessageBox.Show("Error al cargar datos", "ERROR DE CONEXIÓN", MessageBoxButtons.OK);
             }
         }
 
@@ -142,13 +143,13 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("ID", OracleDbType.Int32).Value = Convert.ToInt32(txtCambioSA.Text);
                 cmd.Parameters.Add("EST", OracleDbType.Varchar2).Value = publicada;
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Saldo publicado");
+                MessageBox.Show("Saldo publicado", "PUBLICACIÓN DE SALDO", MessageBoxButtons.OK);
                 ListarSaldos();
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Error al publicar saldo");
+                MessageBox.Show("Error al publicar saldo", "ERROR PUBLICACIÓN DE SALDO", MessageBoxButtons.OK);
             }
         }
 
@@ -160,12 +161,12 @@ namespace FeriaEscritorio
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("ID", OracleDbType.Int32).Value = Convert.ToInt32(txtCambioSA.Text);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Saldo Eliminado");
+                MessageBox.Show("Saldo Eliminado", "ELIMINAR SALDO", MessageBoxButtons.OK);
                 ListarSaldos();
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al eliminar saldo");
+                MessageBox.Show("Error al eliminar saldo", "ERROR ELIMINAR SALDO", MessageBoxButtons.OK);
 
             }
         }

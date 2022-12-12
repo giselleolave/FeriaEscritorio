@@ -16,6 +16,7 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
 
 namespace FeriaEscritorio
 {
@@ -58,7 +59,7 @@ namespace FeriaEscritorio
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -70,7 +71,7 @@ namespace FeriaEscritorio
 
         private void btnSalirE_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnCreSu_Click(object sender, RoutedEventArgs e)
@@ -102,21 +103,10 @@ namespace FeriaEscritorio
             catch (Exception)
             {
 
-                MessageBox.Show("Error al cargar datos");
+                MessageBox.Show("Error al cargar datos", "ERROR MODIFICAR USUARIO", MessageBoxButtons.OK);
             }
         }
 
-       /* private void btnBusSub_Click(object sender, RoutedEventArgs e)
-        {
-            OracleCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT * FROM SUBASTA_TRANS WHERE PROCESO_VEN_ID like ('" + txtbuscarSU.Text + "%')";
-            cmd.CommandType = CommandType.Text;
-            OracleDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            gvsubastas.ItemsSource = dt.DefaultView;
-            dr.Close();
-        }*/
 
         private void btnBusSub2_Click(object sender, RoutedEventArgs e)
         {
@@ -138,13 +128,13 @@ namespace FeriaEscritorio
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("ID", OracleDbType.Int32).Value = Convert.ToInt32(txtCambioSUB.Text);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Subasta Eliminada");
+                MessageBox.Show("Subasta Eliminada", "ELIMINAR SUBASTA", MessageBoxButtons.OK);
                 ListarSubastas();
 
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al eliminar subasta");
+                MessageBox.Show("Error al eliminar subasta", "ERROR ELIMINAR SUBASTA", MessageBoxButtons.OK);
 
             }
         }

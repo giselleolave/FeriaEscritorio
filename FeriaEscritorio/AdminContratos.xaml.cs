@@ -16,6 +16,8 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
+using Application = System.Windows.Application;
 
 namespace FeriaEscritorio
 {
@@ -124,14 +126,14 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("ID", OracleDbType.Int32).Value = Convert.ToInt32(txtCambioCon.Text);
                 cmd.Parameters.Add("ESTC", OracleDbType.Char).Value = estadoCon;
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Contrato Activo");
+                MessageBox.Show("Contrato Activado", "ACTIVACIÓN DE CONTRATO", MessageBoxButtons.OK);
                 ListarContratos();
 
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Error al cambiar estado");
+                MessageBox.Show("Error al cambiar estado", "ERROR CAMBIO DE ESTADO", MessageBoxButtons.OK);
             }
         }
 
@@ -145,14 +147,14 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("ID", OracleDbType.Int32).Value = Convert.ToInt32(txtCambioCon.Text);
                 cmd.Parameters.Add("ESTC", OracleDbType.Char).Value = estadoCon;
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Contrato Finalizado");
+                MessageBox.Show("Contrato Finalizado", "FINALIZACIÓN DE CONTRATO", MessageBoxButtons.OK);
                 ListarContratos();
 
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Error al cambiar estado");
+                MessageBox.Show("Error al cambiar estado", "EROOR CAMBIO DE ESTADO", MessageBoxButtons.OK);
             }
         }
     }

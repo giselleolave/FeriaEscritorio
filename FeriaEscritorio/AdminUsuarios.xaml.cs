@@ -16,6 +16,7 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
 
 namespace FeriaEscritorio
 {
@@ -54,7 +55,7 @@ namespace FeriaEscritorio
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -71,7 +72,7 @@ namespace FeriaEscritorio
 
         private void btnSalirE_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnCrearU_Click(object sender, RoutedEventArgs e)
@@ -111,7 +112,7 @@ namespace FeriaEscritorio
             catch (Exception)
             {
 
-                MessageBox.Show("Error al cargar datos");
+                MessageBox.Show("Error al cargar datos", "ERROR DE CONEXIÓN", MessageBoxButtons.OK);
             }
         }
 
@@ -123,12 +124,12 @@ namespace FeriaEscritorio
               cmd.CommandType = CommandType.StoredProcedure;
               cmd.Parameters.Add("ID", OracleDbType.Int32).Value = Convert.ToInt32(txtbuscarID.Text);
               cmd.ExecuteNonQuery();
-              MessageBox.Show("Usuario Eliminado");
+              MessageBox.Show("Usuario Eliminado", "ELIMINAR USUARIO", MessageBoxButtons.OK);
               ListarUsuarios();
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al eliminar usuario");
+                MessageBox.Show("Error al eliminar usuario", "ERROR ELIMINAR USUARIO", MessageBoxButtons.OK);
 
             }
            
@@ -160,7 +161,7 @@ namespace FeriaEscritorio
             catch (Exception)
             {
 
-                MessageBox.Show("Error al cargar datos");
+                MessageBox.Show("Error al cargar datos", "ERROR DE CONEXIÓN", MessageBoxButtons.OK);
             }
         }
 

@@ -16,6 +16,7 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
 
 namespace FeriaEscritorio
 {
@@ -53,7 +54,7 @@ namespace FeriaEscritorio
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -70,7 +71,7 @@ namespace FeriaEscritorio
 
         private void btnSalirE_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void CbxTipoP_Loaded(object sender, RoutedEventArgs e)
@@ -110,12 +111,12 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("IDTP", OracleDbType.Int32).Value = Convert.ToInt32(CbxTipoP.SelectedValue);
                 cmd.Parameters.Add("PRMP", OracleDbType.Int32).Value = Convert.ToInt32(txtPrecioM.Text);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Producto Insertado");
+                MessageBox.Show("Producto Insertado", "INSERTAR PRODUCTO", MessageBoxButtons.OK);
             }
             catch (Exception error)
             {
 
-                MessageBox.Show("Error al insertar producto");
+                MessageBox.Show("Error al insertar producto", "ERROR INSERTAR PRODUCTO", MessageBoxButtons.OK);
             }
             
         }

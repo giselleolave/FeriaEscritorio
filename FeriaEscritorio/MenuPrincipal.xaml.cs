@@ -16,6 +16,7 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
 
 namespace FeriaEscritorio
 {
@@ -42,7 +43,7 @@ namespace FeriaEscritorio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error de conexión");
+                MessageBox.Show("Error de conexión", "ERROR DE CONEXIÓN", MessageBoxButtons.OK);
                 throw new Exception("Falla de conexión");
             }
         }
@@ -55,7 +56,7 @@ namespace FeriaEscritorio
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
@@ -72,7 +73,7 @@ namespace FeriaEscritorio
 
         private void btnSalirE_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnUsuarios_Click(object sender, RoutedEventArgs e)

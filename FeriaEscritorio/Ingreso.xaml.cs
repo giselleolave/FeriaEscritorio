@@ -16,6 +16,8 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
+using Application = System.Windows.Application;
 
 namespace FeriaEscritorio
 {
@@ -41,8 +43,8 @@ namespace FeriaEscritorio
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error de conexión");
-                throw new Exception("Falla de conexión");
+                MessageBox.Show("Error de conexión", "Message", MessageBoxButtons.OK);
+                
             }
         }
 
@@ -64,23 +66,49 @@ namespace FeriaEscritorio
 
         private void btnEntrar_Click(object sender, RoutedEventArgs e)
         {
-            OracleCommand comand = new OracleCommand("SELECT * FROM USUARIO WHERE EMAIL like('" + txtEmail.Text + "') AND PASSWORD  like('" + txtContrasena.Text + "') AND ID_TIPO_USUARIO = 13", conn);
+            OracleCommand comand = new OracleCommand("SELECT ID_TIPO_USUARIO FROM USUARIO WHERE EMAIL like('" + txtEmail.Text + "') AND PASSWORD  like('" + txtContrasena.Text + "')", conn);
+            comand.CommandType = CommandType.Text;
             comand.Parameters.Add(":EMAIL", txtEmail.Text);
             comand.Parameters.Add(":PASSWORD", txtContrasena.Text);
-            Console.WriteLine("CONTRASEÑA" + txtContrasena.Text);
-            Console.WriteLine("EMAIL" + txtEmail.Text);
+
             OracleDataReader reader = comand.ExecuteReader();
-
-            if (reader.Read())
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            reader.Close();
+            if (txtEmail.Text.Length == 0) { MessageBox.Show("Debe escribir un email asociado a un perfil de ADMINISTRADOR", "EMAIL", MessageBoxButtons.OK); }
+            else if (txtContrasena.Text.Length == 0) { MessageBox.Show("Debe escribir una contraseña", "CONTRASEÑA", MessageBoxButtons.OK); }
+            else if (dt.Rows.Count == 0)
             {
+                MessageBox.Show("NO ESTÁ AUTORIZADO PARA ENTRAR AL SISTEMA", "ACCESO DENEGADO", MessageBoxButtons.OK);
+                
+            }
+            else if (dt.Rows.ToString() != "")
+            {
+                if (dt.Rows[0][0].ToString() != "1" && dt.Rows[0][0].ToString() != "2" || dt.Rows[0][0].ToString() == "")
+                {
+                    MessageBox.Show("NO ESTÁ AUTORIZADO PARA ENTRAR AL SISTEMA", "ACCESO DENEGADO", MessageBoxButtons.OK);
+                
+                }  
+                else if (dt.Rows[0][0].ToString() == "1") 
+                {
+                    this.Hide();
+                    MenuPrincipal menuPrincipal = new MenuPrincipal();
+                    menuPrincipal.Show();
+                }
+                else if (dt.Rows[0][0].ToString() == "2") 
+                {
                 this.Hide();
-                MenuPrincipal menuPrincipal = new MenuPrincipal();
-                menuPrincipal.Show();
+                MenuConsultor menuConsultor = new MenuConsultor();
+                menuConsultor.Show();
+                }
 
-            }           
-            else if (txtEmail.Text.Length == 0) { MessageBox.Show("Debe escribir un email asociado a un perfil de ADMINISTRADOR"); }
-            else if (txtContrasena.Text.Length == 0) { MessageBox.Show("Debe escribir una contraseña"); }
-            else {MessageBox.Show("Acceso Denegado");}
+            }
+                     
+           
+            
+           
+
+            else {MessageBox.Show("NO ESTÁ AUTORIZADO PARA ENTRAR AL SISTEMA", "ACCESO DENEGADO", MessageBoxButtons.OK);}
         }
     }
 }

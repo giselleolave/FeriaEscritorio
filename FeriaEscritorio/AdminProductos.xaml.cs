@@ -16,6 +16,8 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
+
 
 namespace FeriaEscritorio
 {
@@ -59,7 +61,7 @@ namespace FeriaEscritorio
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -71,7 +73,7 @@ namespace FeriaEscritorio
 
         private void btnSalirE_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnNuePro_Click(object sender, RoutedEventArgs e)
@@ -113,11 +115,11 @@ namespace FeriaEscritorio
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("ID", OracleDbType.Int32).Value = Convert.ToInt32(txtbuscarProID.Text);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Producto Eliminado");
+                MessageBox.Show("Producto Eliminado", "ELIMINACIÓN DE PRODUCTO", MessageBoxButtons.OK);
             }
             catch (Exception)
             {
-                MessageBox.Show("Error al eliminar producto");
+                MessageBox.Show("Error al eliminar producto", "ERROR ELIMINACIÓN", MessageBoxButtons.OK);
 
             }
         }
@@ -151,9 +153,8 @@ namespace FeriaEscritorio
 
         private void gvproductos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid dag = sender as DataGrid;
-            DataRowView data = dag.SelectedItem as DataRowView;
-            if (data != null)
+            System.Windows.Controls.DataGrid dag = sender as System.Windows.Controls.DataGrid;
+            if (dag.SelectedItem is DataRowView data)
             {
                 txtIDPRO.Text = data["ID"].ToString();
                 txtDESCR.Text = data["Nombre"].ToString();
@@ -172,12 +173,12 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("IDPR", OracleDbType.Int32).Value = Convert.ToInt32(txtIDPRO.Text);
                 cmd.Parameters.Add("ESTB", OracleDbType.Varchar2).Value = "BODEGA";
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Producto enviado a bodega");
+                MessageBox.Show("Producto enviado a bodega", "ENVIAR A BODEGA", MessageBoxButtons.OK);
             }
             catch (Exception E)
             {
 
-                MessageBox.Show("Error al guardar en bodega" + E);
+                MessageBox.Show("Error al guardar producto en bodega" + E, "ERROR AL ENVIAR", MessageBoxButtons.OK);
             }
             ListarProductos();
 

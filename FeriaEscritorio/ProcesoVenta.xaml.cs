@@ -17,6 +17,7 @@ using System.Configuration;
 using System.Data;
 using CapaAcceso;
 using Prism.Services.Dialogs;
+using System.Windows.Forms;
 
 namespace FeriaEscritorio
 {
@@ -59,7 +60,7 @@ namespace FeriaEscritorio
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnVolver_Click(object sender, RoutedEventArgs e)
@@ -71,7 +72,7 @@ namespace FeriaEscritorio
 
         private void btnSalirE_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void gvsolicitudes_Loaded(object sender, RoutedEventArgs e)
@@ -97,7 +98,7 @@ namespace FeriaEscritorio
             catch (Exception)
             {
 
-                MessageBox.Show("Error al cargar datos");
+                MessageBox.Show("Error al cargar datos", "ERROR MODIFICAR USUARIO", MessageBoxButtons.OK);
             }
         }
 
@@ -111,13 +112,13 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("ID", OracleDbType.Int32).Value = Convert.ToInt32(txtCambio.Text);
                 cmd.Parameters.Add("EST", OracleDbType.Varchar2).Value = Convert.ToInt32(anulado);              
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Solicitud Anulada");
+                MessageBox.Show("Solicitud Anulada", "ANULAR SOLICITUD", MessageBoxButtons.OK);
                 ListarSolicitudes();
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Error al modificar solicitud");
+                MessageBox.Show("Error al modificar solicitud", "MODIFICAR SOLICITUD", MessageBoxButtons.OK);
             }
         }
 
@@ -132,7 +133,7 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("EST", OracleDbType.Varchar2).Value = Convert.ToInt32(activa);
 
                 cmd.ExecuteNonQuery();
-                if (MessageBox.Show("¿Desea crear proceso de venta", "Proceso de venta", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (MessageBox.Show("¿Desea crear proceso de venta?", "Proceso de venta", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
                 {
                     try
                     {
@@ -141,11 +142,11 @@ namespace FeriaEscritorio
                         cmdd.Parameters.Add("ESTPV", OracleDbType.Varchar2).Value = "activo";
                         cmdd.Parameters.Add("IDPV", OracleDbType.Int32).Value = Convert.ToInt32(txtCambio.Text);
                         cmdd.ExecuteNonQuery();
-                        MessageBox.Show("Proceso creado");
+                        MessageBox.Show("Proceso creado", "Message", MessageBoxButtons.OK);
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Error al crear proceso de venta");
+                        MessageBox.Show("Error al crear proceso de venta", "ERROR CREAR PROCESO DE VENTA", MessageBoxButtons.OK);
                     }
                     
                 }
@@ -155,7 +156,7 @@ namespace FeriaEscritorio
             catch (Exception)
             {
 
-                MessageBox.Show("Error al modificar solicitud");
+                MessageBox.Show("Error al modificar solicitud", "ERROR MODIFICAR SOLICITUD", MessageBoxButtons.OK);
             }
         }
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
@@ -168,13 +169,13 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("ID", OracleDbType.Int32).Value = Convert.ToInt32(txtCambio.Text);
                 cmd.Parameters.Add("EST", OracleDbType.Varchar2).Value = Convert.ToInt32(activa);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Solicitud Activada, lista para Subasta de transporte");
+                MessageBox.Show("Solicitud Activada, lista para Subasta de transporte", "ACTIVACIÓN SOLICITUD", MessageBoxButtons.OK);
                 ListarSolicitudes();
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Error al modificar solicitud");
+                MessageBox.Show("Error al modificar solicitud", "ERROR MODIFICAR SOLICITUD", MessageBoxButtons.OK);
             }
         }
 
@@ -182,7 +183,7 @@ namespace FeriaEscritorio
         {
             OracleCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT SOLICITUD_PRO.ID,SOLICITUD_PRO.PRODUCTO,SOLICITUD_PRO.CANTIDAD,SOLICITUD_PRO.DIRECCION,SOLICITUD_PRO.USUARIO_ID,ESTADO.ESTADO FROM SOLICITUD_PRO JOIN ESTADO ON SOLICITUD_PRO.ESTADO_ID = ESTADO.ID WHERE ESTADO_ID = 5";
-            //cmd.CommandText = "SELECT * FROM SOLICITUD_PRO WHERE ESTADO_ID = 1 ";
+           
             cmd.CommandType = CommandType.Text;
             OracleDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
@@ -195,7 +196,7 @@ namespace FeriaEscritorio
         {
             OracleCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT SOLICITUD_PRO.ID,SOLICITUD_PRO.PRODUCTO,SOLICITUD_PRO.CANTIDAD,SOLICITUD_PRO.DIRECCION,SOLICITUD_PRO.USUARIO_ID,ESTADO.ESTADO FROM SOLICITUD_PRO JOIN ESTADO ON SOLICITUD_PRO.ESTADO_ID = ESTADO.ID WHERE ESTADO_ID = 6";
-            //cmd.CommandText = "SELECT * FROM SOLICITUD_PRO WHERE ESTADO_ID = 4 ";
+            
             cmd.CommandType = CommandType.Text;
             OracleDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();
@@ -208,7 +209,7 @@ namespace FeriaEscritorio
         {
             OracleCommand cmd = conn.CreateCommand();
             cmd.CommandText = "SELECT SOLICITUD_PRO.ID,SOLICITUD_PRO.PRODUCTO,SOLICITUD_PRO.CANTIDAD,SOLICITUD_PRO.DIRECCION,SOLICITUD_PRO.USUARIO_ID,ESTADO.ESTADO FROM SOLICITUD_PRO JOIN ESTADO ON SOLICITUD_PRO.ESTADO_ID = ESTADO.ID WHERE ESTADO_ID = 7";
-            //cmd.CommandText = "SELECT * FROM SOLICITUD_PRO WHERE ESTADO_ID = 3 ";
+            
             cmd.CommandType = CommandType.Text;
             OracleDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();

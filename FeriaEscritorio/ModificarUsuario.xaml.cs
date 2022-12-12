@@ -16,6 +16,7 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
 
 namespace FeriaEscritorio
 {
@@ -53,7 +54,7 @@ namespace FeriaEscritorio
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -70,7 +71,7 @@ namespace FeriaEscritorio
 
         private void btnSalirE_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btncargaru_Click(object sender, RoutedEventArgs e)
@@ -102,7 +103,7 @@ namespace FeriaEscritorio
 
         private void gvusuariosMod_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid dg = sender as DataGrid;
+            System.Windows.Controls.DataGrid dg = sender as System.Windows.Controls.DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
             {
@@ -127,12 +128,12 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("CONT", OracleDbType.Varchar2).Value = txtContrasenaMod.Text;
                 cmd.Parameters.Add("TIP", OracleDbType.Int32).Value = Convert.ToInt32(CbxTipoUMod.SelectedValue);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Usuario Modificado");
+                MessageBox.Show("Usuario Modificado", "MODIFICAR USUARIO", MessageBoxButtons.OK);
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Error al modificar usuario");
+                MessageBox.Show("Error al modificar usuario", "ERROR MODIFICAR USUARIO", MessageBoxButtons.OK);
             }
         }
 

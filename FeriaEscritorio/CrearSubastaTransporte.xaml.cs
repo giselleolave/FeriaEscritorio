@@ -16,6 +16,7 @@ using Oracle.ManagedDataAccess.Types;
 using System.Configuration;
 using System.Data;
 using CapaAcceso;
+using System.Windows.Forms;
 
 namespace FeriaEscritorio
 {
@@ -54,12 +55,12 @@ namespace FeriaEscritorio
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnSalirE_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
@@ -94,12 +95,12 @@ namespace FeriaEscritorio
             catch (Exception)
             {
 
-                MessageBox.Show("Error al cargar datos");
+                MessageBox.Show("Error al cargar datos", "ERROR DE CONEXIÓN", MessageBoxButtons.OK);
             }
         }
         private void gvlocal_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid dg = sender as DataGrid;
+            System.Windows.Controls.DataGrid dg = sender as System.Windows.Controls.DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
             {
@@ -155,13 +156,13 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("TIPO", OracleDbType.Varchar2).Value = tipo;
                 cmd.Parameters.Add("DPID", OracleDbType.Int32).Value = Convert.ToInt32(txtIDDETLO.Text);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Subasta Creada");
+                MessageBox.Show("Subasta Creada", "CREAR SUBASTA", MessageBoxButtons.OK);
                 
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Error al crear subasta_trans");
+                MessageBox.Show("Error al crear subasta_trans", "Message", MessageBoxButtons.OK);
             }
         }
 
@@ -231,12 +232,12 @@ namespace FeriaEscritorio
             catch (Exception)
             {
 
-                MessageBox.Show("Error al cargar datos");
+                MessageBox.Show("Error al cargar datos", "ERROR DE CONEXIÓN", MessageBoxButtons.OK);
             }
         }
         private void gvexterno_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            DataGrid dg = sender as DataGrid;
+            System.Windows.Controls.DataGrid dg = sender as System.Windows.Controls.DataGrid;
             DataRowView dr = dg.SelectedItem as DataRowView;
             if (dr != null)
             {
@@ -257,13 +258,13 @@ namespace FeriaEscritorio
                 cmd.Parameters.Add("TIPO", OracleDbType.Varchar2).Value = tipo;
                 cmd.Parameters.Add("PPID", OracleDbType.Int32).Value = Convert.ToInt32(txtIDPROEX.Text);
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Subasta Creada");
+                MessageBox.Show("Subasta Creada", "CREACIÓN DE SUBASTA", MessageBoxButtons.OK);
 
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Error al crear subasta_trans");
+                MessageBox.Show("Error al crear subasta de transporte", "ERROR CREAR SUBASTA DE TRASNPORTE", MessageBoxButtons.OK);
             }
         }
 
