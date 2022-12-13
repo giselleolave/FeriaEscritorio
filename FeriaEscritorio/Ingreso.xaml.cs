@@ -84,7 +84,7 @@ namespace FeriaEscritorio
             }
             else if (dt.Rows.ToString() != "")
             {
-                if (dt.Rows[0][0].ToString() != "1" && dt.Rows[0][0].ToString() != "2" || dt.Rows[0][0].ToString() == "")
+                if (dt.Rows[0][0].ToString() != "1" && dt.Rows[0][0].ToString() != "2" || dt.Rows[0][0].ToString() == "2")
                 {
                     MessageBox.Show("NO ESTÁ AUTORIZADO PARA ENTRAR AL SISTEMA", "ACCESO DENEGADO", MessageBoxButtons.OK);
                 
