@@ -142,15 +142,21 @@
                                         />
                         </TextBox.Background>
                     </TextBox>
-                    <TextBlock Text="            Fecha de Firma"
+                    <TextBlock Text="                  Productor"
                                Foreground="White"
                                FontSize="12"
                                FontWeight="Medium"
                                FontFamily="Montserrat"
                                HorizontalAlignment="Left"
                                VerticalAlignment="Center"                              
-                               Margin="10,20,0,0" Height="16" Width="173"/>
-                    <DatePicker x:Name="dtFecha_firma" Margin="0,0,-0.2,0"/>
+                               Margin="10,20,0,0" Height="16" Width="149"/>
+                    <ComboBox x:Name="cbxProductor"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top" Width="193"
+                              Margin="0,0,-0.2,0"
+                              DisplayMemberPath="nombre"
+                              SelectedValuePath="id" 
+                              Loaded="cbxProductor_Loaded"/>
                     <TextBlock Text="            Fecha de Término"
                     Foreground="White"
                     FontSize="12"

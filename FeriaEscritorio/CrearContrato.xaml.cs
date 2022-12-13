@@ -82,7 +82,7 @@ namespace FeriaEscritorio
                 OracleCommand cmd = new OracleCommand("FN_INSERTARCON", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("PORC", OracleDbType.Int32).Value = Convert.ToInt32(txtPorcen.Text);
-                cmd.Parameters.Add("FECF", OracleDbType.Date).Value = Convert.ToDateTime(dtFecha_firma.ToString());
+                cmd.Parameters.Add("USID", OracleDbType.Int32).Value = Convert.ToInt32(cbxProductor.SelectedValue);
                 cmd.Parameters.Add("FECT", OracleDbType.Date).Value = Convert.ToDateTime(dtFecha_termino.ToString());
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Contrato Creado", "CREAR CONTRATO", MessageBoxButtons.OK);
@@ -97,6 +97,19 @@ namespace FeriaEscritorio
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
             txtPorcen.Clear();
+        }
+
+        
+
+        private void cbxProductor_Loaded(object sender, RoutedEventArgs e)
+        {
+            OracleCommand comm = new OracleCommand("SELECT ID,NOMBRE_COMPLETO FROM USUARIO WHERE ID_TIPO_USUARIO = 18", conn);
+            OracleDataReader tipoP = comm.ExecuteReader();
+            while (tipoP.Read())
+            {
+                string _id = tipoP["ID"].ToString();
+                cbxProductor.Items.Add(new { nombre = tipoP["NOMBRE_COMPLETO"].ToString(), id = int.Parse(_id) });
+            }
         }
     }
 }

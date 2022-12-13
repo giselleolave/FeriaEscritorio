@@ -500,38 +500,6 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Button x:Name="btnCerrar"                           
-                        BorderThickness="0"
-                        Content="Cerrar Proceso"
-                        Foreground="White"
-                        FontSize="10"
-                        FontFamily="Montserrat"
-                        Cursor="Hand"
-                       
-                        Margin="151,421,0,55" HorizontalAlignment="Left" Width="147"
-                            Grid.Row="1" Click="btnCerrar_Click"
-                            >
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Background" Value="#FF04A099"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="Purple"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    <Button.Template>
-                        <ControlTemplate TargetType="{x:Type Button}">
-                            <Border Width="100" Height="35" 
-                                    CornerRadius="15"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
             </Grid>
         </Border>
 

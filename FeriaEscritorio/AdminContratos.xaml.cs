@@ -90,7 +90,7 @@ namespace FeriaEscritorio
         private void ListarContratos()
         {
             OracleCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "SELECT ID,FECHA_FIRMA,FECHA_TERMINO,PORC_COMISION,IS_ACTIVE FROM CONTRATO";
+            cmd.CommandText = "SELECT ID,USUARIO_ID,FECHA_TERMINO,PORC_COMISION,IS_ACTIVE FROM CONTRATO";
             cmd.CommandType = CommandType.Text;
             OracleDataReader dr = cmd.ExecuteReader();
             DataTable dt = new DataTable();

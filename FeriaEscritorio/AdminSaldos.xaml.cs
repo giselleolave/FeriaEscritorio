@@ -96,12 +96,12 @@ namespace FeriaEscritorio
 
                     Saldo sal = new Saldo();
                     sal.Id_Saldo = reader.GetInt32(0);
-                    sal.Descripcion = reader.GetString(1);
-                    sal.Cantidad = reader.GetInt32(2);
-                    sal.Precio = reader.GetInt32(3);
-                    sal.ID_Producto = reader.GetInt32(4);
-                    sal.Estado = reader.GetString(5);
-                    
+                    sal.Cantidad = reader.GetInt32(1);
+                    sal.Descripcion = reader.GetOracleClob(2).ToString();
+                    sal.Precio = reader.GetFloat(3);
+                    sal.Estado = reader.GetString(4);
+                    sal.ID_Producto = reader.GetInt32(5);
+
 
                     listadosal.Add(sal);
                     Console.WriteLine("listaProductos", listadosal);

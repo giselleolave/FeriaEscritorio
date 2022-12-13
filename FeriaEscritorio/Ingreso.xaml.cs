@@ -84,18 +84,18 @@ namespace FeriaEscritorio
             }
             else if (dt.Rows.ToString() != "")
             {
-                if (dt.Rows[0][0].ToString() != "1" && dt.Rows[0][0].ToString() != "2" || dt.Rows[0][0].ToString() == "2")
+                if (dt.Rows[0][0].ToString() != "13" && dt.Rows[0][0].ToString() != "14" || dt.Rows[0][0].ToString() == "2")
                 {
                     MessageBox.Show("NO ESTÁ AUTORIZADO PARA ENTRAR AL SISTEMA", "ACCESO DENEGADO", MessageBoxButtons.OK);
                 
                 }  
-                else if (dt.Rows[0][0].ToString() == "1") 
+                else if (dt.Rows[0][0].ToString() == "13") 
                 {
                     this.Hide();
                     MenuPrincipal menuPrincipal = new MenuPrincipal();
                     menuPrincipal.Show();
                 }
-                else if (dt.Rows[0][0].ToString() == "2") 
+                else if (dt.Rows[0][0].ToString() == "14") 
                 {
                 this.Hide();
                 MenuConsultor menuConsultor = new MenuConsultor();
